@@ -85,14 +85,11 @@ app.get('/api/games/filter', (req, res) => {
 app.get('/api/games/:id', (req, res) => {
   // TODO: Add logic to return a game by its index (ID)
   
-  // ***************************************************************
-  // ***************************************************************
-  // ***************  Implement your code here  ********************
-  // ***************************************************************
-  // ***************************************************************
+  const id = parseInt(req.params.id);
+  res.status(200).json(games[id]);
 
   // Don't forget to remove the line below:
-  res.status(501).send('Not Implemented');
+  // Samuel K: Ok I did it again. I tried to use findById logic that was shown a few classes back but it didn't work for me. Thats why i had to use parseInt in order to make it all work.
 });
 
 // POST /api/games
@@ -101,11 +98,9 @@ app.get('/api/games/:id', (req, res) => {
 app.post('/api/games', (req, res) => {
   // TODO: Add logic to add a new game to the array
   
-  // ***************************************************************
-  // ***************************************************************
-  // ***************  Implement your code here  ********************
-  // ***************************************************************
-  // ***************************************************************
+  const newGame = req.body;
+  games.push(newGame);
+  req.status(201).json({message: "New game was created succesfully", game: newGame})
 
   // Don't forget to remove the line below:
   res.status(501).send('Not Implemented');
