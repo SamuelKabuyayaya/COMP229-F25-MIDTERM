@@ -100,7 +100,7 @@ app.post('/api/games', (req, res) => {
   
   const newGame = req.body;
   games.push(newGame);
-  req.status(201).json({message: "New game was created succesfully", game: newGame})
+  res.status(201).json({message: "New game was created succesfully", game: newGame})
 
   // Don't forget to remove the line below:
   //Samuel K: almost forgot to delete that lol.
@@ -112,14 +112,14 @@ app.post('/api/games', (req, res) => {
 app.put('/api/games/:id', (req, res) => {
   // TODO: Add logic to update a game by its index
   
-  // ***************************************************************
-  // ***************************************************************
-  // ***************  Implement your code here  ********************
-  // ***************************************************************
-  // ***************************************************************
+  const id = parseInt(req.params.id);
+  const updatedGame = {...games[id], ...req.body};
+  games[id] = updatedGame;
+
+  res.status(201).json({message: "Game information was updated sucessfully", game: updatedGame})
 
   // Don't forget to remove the line below:
-  res.status(501).send('Not Implemented');
+  //Samuel K: Deleted.
 });
 
 // DELETE /api/games/:id
