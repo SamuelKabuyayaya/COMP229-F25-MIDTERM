@@ -100,7 +100,7 @@ app.post('/api/games', (req, res) => {
   
   const newGame = req.body;
   games.push(newGame);
-  res.status(201).json({message: "New game was created succesfully", game: newGame})
+  res.status(201).json({message: "New game was created succesfully", game: newGame});
 
   // Don't forget to remove the line below:
   //Samuel K: almost forgot to delete that lol.
@@ -116,7 +116,7 @@ app.put('/api/games/:id', (req, res) => {
   const updatedGame = {...games[id], ...req.body};
   games[id] = updatedGame;
 
-  res.status(201).json({message: "Game information was updated sucessfully", game: updatedGame})
+  res.status(201).json({message: "Game information was updated sucessfully", game: updatedGame});
 
   // Don't forget to remove the line below:
   //Samuel K: Deleted.
@@ -128,14 +128,13 @@ app.put('/api/games/:id', (req, res) => {
 app.delete('/api/games/:id', (req, res) => {
   // TODO: Add logic to remove a game by its index
   
-  // ***************************************************************
-  // ***************************************************************
-  // ***************  Implement your code here  ********************
-  // ***************************************************************
-  // ***************************************************************
+  const id = parseInt(req.params.id);
+  const deletedGame = games.splice(id, 1);
+
+  res.status(200).json({message: "Game was deleted successfully", game: deletedGame});
 
   // Don't forget to remove the line below:
-  res.status(501).send('Not Implemented');
+  //Samuel K: Deleted this one as well.
 });
 
 // Start the server
