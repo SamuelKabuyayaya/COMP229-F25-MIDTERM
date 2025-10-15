@@ -71,14 +71,12 @@ app.get('/api/games', (req, res) => {
 app.get('/api/games/filter', (req, res) => {
   // TODO: Add logic to filter games by genre
   
-  // ***************************************************************
-  // ***************************************************************
-  // ***************  Implement your code here  ********************
-  // ***************************************************************
-  // ***************************************************************
+  const genre = req.query.genre;
+  const filteredGames = games.filter(game => game.genre === genre);
+  res.status(200).json(filteredGames);
 
   // Don't forget to remove the line below:
-  res.status(501).send('Not Implemented');
+  // Samuel K: Ok I did it again. Had some issues with the filter logic.
 });
 
 // GET /api/games/:id
