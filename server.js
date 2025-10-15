@@ -103,7 +103,7 @@ app.post('/api/games', (req, res) => {
   req.status(201).json({message: "New game was created succesfully", game: newGame})
 
   // Don't forget to remove the line below:
-  res.status(501).send('Not Implemented');
+  //Samuel K: almost forgot to delete that lol.
 });
 
 // PUT /api/games/:id
